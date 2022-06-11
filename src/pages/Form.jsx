@@ -11,6 +11,7 @@ const INITIAL_STATE = {
 const Form = (props) => {
   const [formValues, setFormValues] = useState(INITIAL_STATE);
 
+
   const submitForm = (ev) => {
     ev.preventDefault();
     const { name, dorsal, nacionality, image } = formValues;
@@ -25,6 +26,8 @@ const Form = (props) => {
     setFormValues(INITIAL_STATE);
   };
 
+
+
   const handleInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -35,6 +38,7 @@ const Form = (props) => {
       }
     );
   };
+
 
   return (
     <form onSubmit={submitForm}>
@@ -60,9 +64,9 @@ const Form = (props) => {
         </label>
 
         <div className="img">
-          {formValues.image && (
+          {formValues.image ? (
             <img src={formValues.image} alt={formValues.name} width="200px" />
-          )}
+          ): null}
         </div>
 
         <div>
